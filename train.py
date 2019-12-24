@@ -45,8 +45,8 @@ def main():
     parser.add_argument('--save_interval', type=int, default=10)
     parser.add_argument('--save_dir', type=str, default='logs/')
     parser.add_argument('--resume', type=str, default=None)
-    parser.add_argument('--table', type=str, default='data/Cangjie5.txt')
-    parser.add_argument('--codemap', type=str, default='data/codemap_cangjie5.txt')
+    parser.add_argument('--table', type=str, default='data/TongyongGuifanHanzi.txt')
+    parser.add_argument('--codemap', type=str, default='data/codemap_wubi86.txt')
     parser.add_argument('--fonts', nargs='+', default=['data/hanazono/HanaMinA.ttf', 'data/hanazono/HanaMinB.ttf'])
     parser.add_argument('--encoder_lr', type=float, default=1e-3)
     parser.add_argument('--decoder_lr', type=float, default=1e-3)
@@ -58,7 +58,7 @@ def main():
 
     glyph = dset.Glyph(args.fonts)
     dataset = dset.CodeTableDataset(glyph, table=args.table, codemap=args.codemap)
-    train_length = int(len(dataset) * 0.7)
+    train_length = int(len(dataset) * 0.8)
     train_set, val_set = torch.utils.data.random_split(dataset, [train_length, len(dataset) - train_length])
     train_loader = torch.utils.data.DataLoader(train_set, args.batch_size, True,
                                                collate_fn=dset.collate_batch,
@@ -71,7 +71,7 @@ def main():
 
     encoder = models.Encoder(encode_channels=256).to(device)
     encoder_optim = torch.optim.Adam(encoder.parameters(), lr=args.encoder_lr)
-    decoder = models.Decoder(128, 256, 256, 26 + 2, encoder_dim=256, dropout=0.5).to(device)
+    decoder = models.Decoder(128, 256, 256, 25 + 2, encoder_dim=256, dropout=0.5).to(device)
     decoder_optim = torch.optim.Adam(decoder.parameters(), lr=args.decoder_lr)
     epoch_start = 0
     if args.resume != None:

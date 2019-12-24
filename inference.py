@@ -143,9 +143,9 @@ def main():
     global device
     parser = argparse.ArgumentParser(description='Neuro Cangjie')
 
-    parser.add_argument('--model', '-m', help='path to model', default='logs/cangjie5.pth.tar')
+    parser.add_argument('--model', '-m', help='path to model', default='logs/wubi86.pth.tar')
     parser.add_argument('--fonts', '-f', nargs='+', default=['data/hanazono/HanaMinA.ttf', 'data/hanazono/HanaMinB.ttf'])
-    parser.add_argument('--codemap', '-cm', help='path to code map', default='data/codemap_cangjie5.txt')
+    parser.add_argument('--codemap', '-cm', help='path to code map', default='data/codemap_wubi86.txt')
     parser.add_argument('--beam_size', '-b', default=5, type=int, help='beam size for beam search')
     parser.add_argument('--dont_smooth', dest='smooth', action='store_false', help='do not smooth alpha overlay')
     parser.add_argument('--use_cpu', action='store_true', help='use cpu for model inference')
@@ -158,7 +158,7 @@ def main():
     # Load model
     checkpoint = torch.load(args.model, map_location=device)
     encoder = models.Encoder(encode_channels=256).to(device)
-    decoder = models.Decoder(128, 256, 256, 26 + 2, encoder_dim=256, dropout=0.5).to(device)
+    decoder = models.Decoder(128, 256, 256, 25 + 2, encoder_dim=256, dropout=0.5).to(device)
     decoder.load_state_dict(checkpoint['decoder'])
     encoder.load_state_dict(checkpoint['encoder'])
     decoder.eval()
