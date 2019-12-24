@@ -11,19 +11,21 @@ TL,DR: 用于分析汉字字形结构的简单神经网络，预设提供仓颉�
 ![](https://github.com/nameoverflow/neuro-cangjie/raw/master/img/example1.png)
 ![](https://github.com/nameoverflow/neuro-cangjie/raw/master/img/example2.png)
 
+和仓颉一样，五笔字型也是相当普及的基于形码的输入法，本方法应也适用。
+
 ## 预测
 
 执行 `inference.py` 使用预训练模型进行预测（预训练模型见 releases）。预训练模型使用花园明朝字形，需要将 `HanaMinA.ttf`、`HanaMinB.ttf` 放置在 `data/hanazono` 下。
 
 ```shell
-python inference.py --model data/cangjie5.pth
+python inference.py --model wubi86.pth.tar
 ```
 
 程序将进入命令行交互界面：
 
 ```plain
 >> 拉
-qyt
+ru
 ```
 
 并将可视化结果保存至 `result.png`。
@@ -31,7 +33,7 @@ qyt
 如果需要使用 CPU 进行计算：
 
 ```shell
-python inference.py --model data/cangjie5.pth --use_cpu
+python inference.py --model wubi86.pth.tar --use_cpu
 ```
 
 其它命令行参数详见 `--help`。
@@ -46,6 +48,8 @@ python inference.py --model data/cangjie5.pth --use_cpu
 训练进程：
 
 ![](https://github.com/nameoverflow/neuro-cangjie/raw/master/img/trainplot.png)
+
+五笔码表可自行搜集，通用规范汉字含五千多字已经足够实验，训练时可用 8:2 划分训练集与验证集。注意 z 为通配码，不参与编码，所以总字符数为 25 + 2 而非 26 + 2。
 
 ## 授权协议
 
