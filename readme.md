@@ -11,7 +11,9 @@ TL,DR: 用于分析汉字字形结构的简单神经网络，预设提供仓颉�
 ![](https://github.com/nameoverflow/neuro-cangjie/raw/master/img/example1.png)
 ![](https://github.com/nameoverflow/neuro-cangjie/raw/master/img/example2.png)
 
-和仓颉一样，五笔字型也是相当普及的基于形码的输入法，本方法应也适用。
+和仓颉一样，五笔字型也是相当普及的基于形码的输入法，本方法应也适用。目前的预训练模型相当初步，在字型较标准的时候结果尚可，如：
+
+![](img/wubi86_1.png)
 
 ## 预测
 
