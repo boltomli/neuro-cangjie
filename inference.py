@@ -144,7 +144,7 @@ def main():
     parser = argparse.ArgumentParser(description='Neuro Cangjie')
 
     parser.add_argument('--model', '-m', help='path to model', default='logs/wubi86.pth.tar')
-    parser.add_argument('--fonts', '-f', nargs='+', default=['data/hanazono/HanaMinA.ttf', 'data/hanazono/HanaMinB.ttf'])
+    parser.add_argument('--fonts', '-f', nargs='+', default=['data/source/serif.ttf', 'data/source/sans.ttf', 'data/hanazono/HanaMinA.ttf', 'data/hanazono/HanaMinB.ttf'])
     parser.add_argument('--codemap', '-cm', help='path to code map', default='data/codemap_wubi86.txt')
     parser.add_argument('--beam_size', '-b', default=5, type=int, help='beam size for beam search')
     parser.add_argument('--dont_smooth', dest='smooth', action='store_false', help='do not smooth alpha overlay')
