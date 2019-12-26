@@ -17,10 +17,10 @@ TL,DR: 用于分析汉字字形结构的简单神经网络，预设提供仓颉�
 
 ## 预测
 
-执行 `inference.py` 使用预训练模型进行预测（预训练模型见 releases）。预训练模型使用花园明朝字形，需要将 `HanaMinA.ttf`、`HanaMinB.ttf` 放置在 `data/hanazono` 下。
+执行 `inference.py` 使用预训练模型进行预测（预训练模型见 releases）。预训练模型使用Adobe Source字形。
 
 ```shell
-python inference.py --model wubi86.pth.tar
+python inference.py --model wubi98.pth.tar
 ```
 
 程序将进入命令行交互界面：
@@ -35,7 +35,7 @@ ru
 如果需要使用 CPU 进行计算：
 
 ```shell
-python inference.py --model wubi86.pth.tar --use_cpu
+python inference.py --model wubi98.pth.tar --use_cpu
 ```
 
 其它命令行参数详见 `--help`。
