@@ -47,7 +47,7 @@ def main():
     parser.add_argument('--resume', type=str, default=None)
     parser.add_argument('--table', type=str, default='data/TongyongGuifanHanzi.txt')
     parser.add_argument('--codemap', type=str, default='data/codemap_wubi86.txt')
-    parser.add_argument('--fonts', nargs='+', default=['data/source/serif.ttf', 'data/source/sans.ttf', 'data/hanazono/HanaMinA.ttf', 'data/hanazono/HanaMinB.ttf'])
+    parser.add_argument('--fonts', nargs='+', default=['data/source/serif.ttf', 'data/source/sans.ttf'])
     parser.add_argument('--encoder_lr', type=float, default=1e-3)
     parser.add_argument('--decoder_lr', type=float, default=1e-3)
     parser.add_argument('--alpha_c', type=float, default=1.)
